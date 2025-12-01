@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KIN – Family Memories Prototype</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-logo-wrap">
+            <img
+              src="kinlogo.png"
+              alt="KIN logo"
+              class="brand-logo"
+            />
+          </div>
+          <span class="brand-text">KIN</span>
+        </div>
+        <nav
+          class="top-nav"
+          aria-label="Primary navigation"
+        >
+          <button class="nav-link" data-screen-target="home-screen">
+            Home
+          </button>
+          <button class="nav-link" data-screen-target="share-memory-home">
+            Share Memory
+          </button>
+          <button class="nav-link" data-screen-target="prompts-home">
+            Prompts
+          </button>
+          <button class="nav-link" data-screen-target="storybooks-home">
+            Storybooks
+          </button>
+          <button class="nav-link" data-screen-target="connect-screen">
+            Connect
+          </button>
+          <button class="nav-link" data-screen-target="profile-screen">
+            Profile
+          </button>
+        </nav>
+      </header>
+
+      <main id="main" class="app-main">
+        <!-- HOME SCREEN -->
+        <section
+          id="home-screen"
+          class="screen"
+          aria-labelledby="home-title"
+        >
+          <header class="screen-header">
+            <h1 id="home-title">Welcome to KIN</h1>
+            <p class="screen-subtitle">
+              A warm space for tiny moments, big stories, and everyday family life.
+            </p>
+          </header>
+
+          <section class="hero-panel" aria-label="Family memory highlight">
+            <div class="hero-image" aria-hidden="true"></div>
+            <div class="hero-copy">
+              <p class="hero-tag">Gentle by design</p>
+              <p class="hero-text">
+                KIN helps families share small, low-pressure stories that add up over time.
+              </p>
+            </div>
+          </section>
+
+          <section
+            class="daily-banner"
+            aria-label="Daily moment suggestion"
+          >
+            <p class="daily-label">Today’s moment</p>
+            <p class="daily-text">
+              Share one tiny thing from today that made you smile.
+            </p>
+          </section>
+
+          <section
+            class="card-grid"
+            aria-label="Main actions"
+          >
+            <button
+              class="action-card"
+              data-screen-target="share-memory-home"
+            >
+              <span class="action-title">Share Memory</span>
+              <span class="action-body">Capture a moment in photo, audio, or text.</span>
+            </button>
+
+            <button
+              class="action-card"
+              data-screen-target="prompts-home"
+            >
+              <span class="action-title">Prompts</span>
+              <span class="action-body">Get gentle questions to spark stories.</span>
+            </button>
+
+            <button
+              class="action-card"
+              data-screen-target="storybooks-home"
+            >
+              <span class="action-title">Storybooks</span>
+              <span class="action-body">Collect memories into simple family books.</span>
+            </button>
+
+            <button
+              class="action-card"
+              data-screen-target="connect-screen"
+            >
+              <span class="action-title">Connect</span>
+              <span class="action-body">See where connection features would live.</span>
+            </button>
+          </section>
+        </section>
+
+        <!-- SHARE MEMORY FLOW -->
+        <section
+          id="share-memory-home"
+          class="screen"
+          aria-labelledby="share-memory-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="home-screen"
+            >
+              ← Home
+            </button>
+            <h1 id="share-memory-title">Share a Memory</h1>
+            <p class="screen-subtitle">
+              Choose how you’d like to capture this moment.
+            </p>
+          </header>
+
+          <section
+            class="format-grid"
+            aria-label="Choose format"
+          >
+            <button
+              class="format-card"
+              data-format="photo"
+              data-screen-target="share-memory-capture"
+            >
+              <span class="format-title">Photo / Video</span>
+              <span class="format-body">Simulated photo or video placeholder.</span>
+            </button>
+            <button
+              class="format-card"
+              data-format="audio"
+              data-screen-target="share-memory-capture"
+            >
+              <span class="format-title">Audio</span>
+              <span class="format-body">Simulated audio recording placeholder.</span>
+            </button>
+            <button
+              class="format-card"
+              data-format="text"
+              data-screen-target="share-memory-capture"
+            >
+              <span class="format-title">Text</span>
+              <span class="format-body">Write a short story or note.</span>
+            </button>
+          </section>
+        </section>
+
+        <section
+          id="share-memory-capture"
+          class="screen"
+          aria-labelledby="share-memory-capture-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="share-memory-home"
+            >
+              ← Back
+            </button>
+            <h1 id="share-memory-capture-title">Capture your moment</h1>
+            <p class="screen-subtitle" id="capture-subtitle">
+              Use this placeholder area to imagine recording.
+            </p>
+          </header>
+
+          <div
+            class="placeholder-box"
+            id="capture-placeholder"
+            role="group"
+            aria-label="Capture placeholder"
+          >
+            <!-- Content updated via JS based on chosen format -->
+          </div>
+
+          <div class="button-row">
+            <button
+              class="button-primary"
+              data-screen-target="share-memory-preview"
+            >
+              Continue
+            </button>
+          </div>
+        </section>
+
+        <section
+          id="share-memory-preview"
+          class="screen"
+          aria-labelledby="share-memory-preview-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="share-memory-capture"
+            >
+              ← Back
+            </button>
+            <h1 id="share-memory-preview-title">Preview your moment</h1>
+            <p class="screen-subtitle">
+              This is a simulated preview. No real media is captured.
+            </p>
+          </header>
+
+          <div
+            class="placeholder-box preview-box"
+            aria-label="Preview placeholder"
+          >
+            <p id="preview-placeholder-text">
+              [ Simulated preview of your memory ]
+            </p>
+          </div>
+
+          <form class="preview-form" aria-label="Add caption">
+            <div class="form-field">
+              <label for="caption-input">Caption for this moment</label>
+              <textarea
+                id="caption-input"
+                name="caption"
+                rows="3"
+                placeholder="Add a short note for your family..."
+              ></textarea>
+            </div>
+          </form>
+
+          <div class="button-row button-row-split">
+            <button
+              class="button-secondary"
+              type="button"
+              data-screen-target="share-memory-capture"
+            >
+              Re-record
+            </button>
+            <button
+              class="button-primary"
+              type="button"
+              data-screen-target="share-memory-success"
+            >
+              Share Moment
+            </button>
+          </div>
+        </section>
+
+        <section
+          id="share-memory-success"
+          class="screen"
+          aria-labelledby="share-memory-success-title"
+        >
+          <header class="screen-header">
+            <h1 id="share-memory-success-title">Your moment was added!</h1>
+            <p class="screen-subtitle">
+              In a real app, your family would see this in today’s story.
+            </p>
+          </header>
+
+          <div class="success-card">
+            <p class="success-icon" aria-hidden="true">✓</p>
+            <p class="success-text">
+              This prototype simulates the flow without saving any data.
+            </p>
+          </div>
+
+          <div class="button-row button-row-stacked">
+            <button
+              class="button-primary"
+              type="button"
+              data-screen-target="storybooks-home"
+            >
+              View Today’s Story
+            </button>
+            <button
+              class="button-secondary"
+              type="button"
+              data-screen-target="home-screen"
+            >
+              Back to Home
+            </button>
+          </div>
+        </section>
+
+        <!-- PROMPTS FLOW -->
+        <section
+          id="prompts-home"
+          class="screen"
+          aria-labelledby="prompts-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="home-screen"
+            >
+              ← Home
+            </button>
+            <h1 id="prompts-title">Story Prompts</h1>
+            <p class="screen-subtitle">
+              Choose a category to see gentle questions for sharing.
+            </p>
+          </header>
+
+          <section
+            class="card-grid"
+            aria-label="Prompt categories"
+          >
+            <button
+              class="action-card"
+              data-category="childhood"
+              data-screen-target="prompts-viewer"
+            >
+              <span class="action-title">Childhood</span>
+              <span class="action-body">Early memories and firsts.</span>
+            </button>
+            <button
+              class="action-card"
+              data-category="traditions"
+              data-screen-target="prompts-viewer"
+            >
+              <span class="action-title">Traditions</span>
+              <span class="action-body">Rituals, holidays, and routines.</span>
+            </button>
+            <button
+              class="action-card"
+              data-category="funny"
+              data-screen-target="prompts-viewer"
+            >
+              <span class="action-title">Funny Stories</span>
+              <span class="action-body">The stories everyone still laughs about.</span>
+            </button>
+            <button
+              class="action-card"
+              data-category="lessons"
+              data-screen-target="prompts-viewer"
+            >
+              <span class="action-title">Life Lessons</span>
+              <span class="action-body">What you’ve learned along the way.</span>
+            </button>
+            <button
+              class="action-card"
+              data-category="culture"
+              data-screen-target="prompts-viewer"
+            >
+              <span class="action-title">Culture</span>
+              <span class="action-body">Food, language, and heritage.</span>
+            </button>
+            <button
+              class="action-card"
+              data-category="random"
+              data-screen-target="prompts-viewer"
+            >
+              <span class="action-title">Random Fun</span>
+              <span class="action-body">Light questions for any mood.</span>
+            </button>
+          </section>
+        </section>
+
+        <section
+          id="prompts-viewer"
+          class="screen"
+          aria-labelledby="prompts-viewer-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="prompts-home"
+            >
+              ← Categories
+            </button>
+            <h1 id="prompts-viewer-title">Prompt</h1>
+            <p
+              class="screen-subtitle"
+              id="prompt-category-label"
+            >
+              Category: &nbsp;
+            </p>
+          </header>
+
+          <div
+            class="prompt-box"
+            role="group"
+            aria-label="Story prompt"
+          >
+            <p id="prompt-text">
+              What is a small everyday moment that always makes you feel at home?
+            </p>
+          </div>
+
+          <div class="button-row button-row-split">
+            <button
+              class="button-secondary"
+              type="button"
+              id="prev-prompt"
+            >
+              Previous prompt
+            </button>
+            <button
+              class="button-primary"
+              type="button"
+              id="next-prompt"
+            >
+              Next prompt
+            </button>
+          </div>
+
+          <section
+            class="action-group"
+            aria-label="Prompt actions (simulated)"
+          >
+            <p class="action-group-label">
+              In a full version, you could:
+            </p>
+            <div class="button-row button-row-stacked">
+              <button
+                type="button"
+                class="button-ghost"
+                aria-label="Simulated send prompt to family member"
+              >
+                Send to Family Member (simulated)
+              </button>
+              <button
+                type="button"
+                class="button-ghost"
+                aria-label="Simulated use prompt in a call"
+              >
+                Use in Call (simulated)
+              </button>
+              <button
+                type="button"
+                class="button-ghost"
+                aria-label="Simulated save prompt to favorites"
+              >
+                Save to Favorites (simulated)
+              </button>
+            </div>
+          </section>
+        </section>
+
+        <!-- STORYBOOKS FLOW -->
+        <section
+          id="storybooks-home"
+          class="screen"
+          aria-labelledby="storybooks-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="home-screen"
+            >
+              ← Home
+            </button>
+            <h1 id="storybooks-title">Family Storybooks</h1>
+            <p class="screen-subtitle">
+              See how memories could be collected into simple books.
+            </p>
+          </header>
+
+          <div class="button-row">
+            <button
+              type="button"
+              class="button-primary"
+              data-screen-target="storybook-create"
+            >
+              New Storybook
+            </button>
+          </div>
+
+          <section
+            class="list-section"
+            aria-label="Example storybooks"
+          >
+            <article class="storybook-card">
+              <h2 class="storybook-title">Grandma’s Kitchen</h2>
+              <p class="storybook-meta">12 stories · Food & traditions</p>
+            </article>
+            <article class="storybook-card">
+              <h2 class="storybook-title">First Homes</h2>
+              <p class="storybook-meta">7 stories · Moves and beginnings</p>
+            </article>
+            <article class="storybook-card">
+              <h2 class="storybook-title">Silly Cousin Moments</h2>
+              <p class="storybook-meta">9 stories · Funny memories</p>
+            </article>
+          </section>
+        </section>
+
+        <section
+          id="storybook-create"
+          class="screen"
+          aria-labelledby="storybook-create-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="storybooks-home"
+            >
+              ← Storybooks
+            </button>
+            <h1 id="storybook-create-title">New Storybook</h1>
+            <p class="screen-subtitle">
+              Name this collection so family knows what it holds.
+            </p>
+          </header>
+
+          <form
+            class="storybook-form"
+            aria-label="Create a new storybook (simulated, not saved)"
+          >
+            <div class="form-field">
+              <label for="storybook-title-input">Storybook title</label>
+              <input
+                id="storybook-title-input"
+                name="storybook-title"
+                type="text"
+                autocomplete="off"
+                placeholder="For example: Grandma’s Kitchen"
+              />
+            </div>
+            <div class="form-field">
+              <label for="storybook-description-input">Short description</label>
+              <textarea
+                id="storybook-description-input"
+                name="storybook-description"
+                rows="3"
+                placeholder="Describe the types of memories that live here."
+              ></textarea>
+            </div>
+          </form>
+
+          <div class="button-row">
+            <button
+              type="button"
+              class="button-primary"
+              data-screen-target="storybook-empty"
+            >
+              Create Storybook
+            </button>
+          </div>
+        </section>
+
+        <section
+          id="storybook-empty"
+          class="screen"
+          aria-labelledby="storybook-empty-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="storybooks-home"
+            >
+              ← Storybooks
+            </button>
+            <h1 id="storybook-empty-title">Your new storybook</h1>
+            <p class="screen-subtitle">
+              This is a simulated, empty storybook. No entries yet.
+            </p>
+          </header>
+
+          <div class="empty-state">
+            <p class="empty-title">No entries yet</p>
+            <p class="empty-body">
+              In a full version, each memory you add would appear here.
+            </p>
+          </div>
+
+          <div class="button-row">
+            <button
+              type="button"
+              class="button-primary"
+              data-screen-target="storybook-add-format"
+            >
+              Add First Story
+            </button>
+          </div>
+        </section>
+
+        <section
+          id="storybook-add-format"
+          class="screen"
+          aria-labelledby="storybook-add-format-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="storybook-empty"
+            >
+              ← Back
+            </button>
+            <h1 id="storybook-add-format-title">Choose story format</h1>
+            <p class="screen-subtitle">
+              This reuses the Share Memory flow for consistency.
+            </p>
+          </header>
+
+          <section
+            class="format-grid"
+            aria-label="Choose story format"
+          >
+            <button
+              class="format-card"
+              data-format="photo"
+              data-screen-target="share-memory-capture"
+            >
+              <span class="format-title">Photo / Video</span>
+              <span class="format-body">Simulated image or video memory.</span>
+            </button>
+            <button
+              class="format-card"
+              data-format="audio"
+              data-screen-target="share-memory-capture"
+            >
+              <span class="format-title">Audio</span>
+              <span class="format-body">Simulated recorded story.</span>
+            </button>
+            <button
+              class="format-card"
+              data-format="text"
+              data-screen-target="share-memory-capture"
+            >
+              <span class="format-title">Text Story</span>
+              <span class="format-body">Write a story to live in this book.</span>
+            </button>
+          </section>
+        </section>
+
+        <!-- CONNECT & PROFILE PLACEHOLDERS -->
+        <section
+          id="connect-screen"
+          class="screen"
+          aria-labelledby="connect-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="home-screen"
+            >
+              ← Home
+            </button>
+            <h1 id="connect-title">Connect</h1>
+            <p class="screen-subtitle">
+              Connect features would go here in a full version of KIN.
+            </p>
+          </header>
+
+          <div class="placeholder-box">
+            <p>
+              This screen could include calls, shared rooms, or group moments. For
+              this prototype, it is a simple placeholder to show where those
+              features live.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="profile-screen"
+          class="screen"
+          aria-labelledby="profile-title"
+        >
+          <header class="screen-header">
+            <button
+              class="ghost-link back-link"
+              data-screen-target="home-screen"
+            >
+              ← Home
+            </button>
+            <h1 id="profile-title">Profile & Settings</h1>
+            <p class="screen-subtitle">
+              Profile settings would go here in a full version of KIN.
+            </p>
+          </header>
+
+          <div class="placeholder-box">
+            <p>
+              This area might include notification preferences, accessibility
+              options, and circles of family members. For this prototype, it is a
+              static placeholder only.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <nav
+        class="bottom-nav"
+        aria-label="Primary navigation"
+      >
+        <button
+          class="bottom-nav-item"
+          data-screen-target="home-screen"
+        >
+          <span class="bottom-nav-label">Home</span>
+        </button>
+        <button
+          class="bottom-nav-item"
+          data-screen-target="share-memory-home"
+        >
+          <span class="bottom-nav-label">Share</span>
+        </button>
+        <button
+          class="bottom-nav-item"
+          data-screen-target="prompts-home"
+        >
+          <span class="bottom-nav-label">Prompts</span>
+        </button>
+        <button
+          class="bottom-nav-item"
+          data-screen-target="storybooks-home"
+        >
+          <span class="bottom-nav-label">Books</span>
+        </button>
+        <button
+          class="bottom-nav-item"
+          data-screen-target="profile-screen"
+        >
+          <span class="bottom-nav-label">Profile</span>
+        </button>
+      </nav>
+    </div>
+
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
+
+
